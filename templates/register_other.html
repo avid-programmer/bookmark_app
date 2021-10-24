@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My bookmarks</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style>
+
+            body {
+                overflow-x: hidden;
+            }
+
+              .input1 {
+                           width: auto;
+                           margin-top: 5%;
+                           margin-left: 8%
+                    }
+
+                    textarea {
+                                 margin-top: 3%;
+                                 margin-left: 6%;
+                                 padding: 0;
+                          }
+
+                  button {
+                              margin-top: 3%;
+                              margin-left: 4%;
+                  }
+
+                  .check1 {
+                            margin-top: 3%;
+                            margin-left: 5%;
+                  }
+
+                  .checktext {
+                                margin-top: 3%;
+                                margin-left: 1%;
+                  }
+
+
+    </style>
+
+   </head>
+  <body>
+
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+          <h5 class="my-0 mr-md-auto font-weight-normal">Other Bookmarks</h5>
+          <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-4 text-dark" href="{{ url_for('index') }}">Home</a>
+          </nav>
+        </div>
+
+
+          <div class="my_form">
+          <form action="{{ url_for("book_other") }}" method="POST" id="form1">
+
+            <div class="form-row">
+             <div class="col-md-6">
+               <input class="input1" type="text" name="category" placeholder="Category" list="categories" />
+                 <datalist id="categories">
+                   {% for opt in options %}
+                       <option> {{ opt }}</option>
+                   {% endfor %}
+                 </datalist>
+             </div>
+           </div>
+
+
+           <div class="form-row">
+             <div class="col-md-8">
+             <textarea  class="form-control" name="bookmark_url" rows="1" form="form1" placeholder="Enter the URL"></textarea>
+           </div>
+         </div>
+
+         <div class="form-row">
+           <div class="col-md-8">
+           <textarea  class="form-control" name="description" rows="10" form="form1" placeholder="Enter the description of the website."></textarea>
+         </div>
+       </div>
+
+         <div class="form-row">
+             <input class="check1" type="checkbox" name = "current" /><span class="checktext">Place on homepage</span>
+         </div>
+
+
+           <button class="btn btn-md btn-primary">Submit</button>
+
+          </form>
+        </div>
+  </body>
+</html>
